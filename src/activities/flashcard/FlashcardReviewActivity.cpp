@@ -369,7 +369,7 @@ void FlashcardReviewActivity::renderBack(const FlashcardCard& card) {
     // Back content (answer) — wrapped, may use smaller font if needed
     int backBudget = contentBottom - textY;
     std::vector<std::string> backLines;
-    int backFont = pickMainFont(renderer, card.backContent, contentWidth, backBudget, backLines);
+    int backFont = pickMainFont(renderer, FlashcardDeck::decodeNewlines(card.backContent), contentWidth, backBudget, backLines);
     int backLineHeight = renderer.getLineHeight(backFont);
     for (const auto& line : backLines) {
         if (textY + backLineHeight > contentBottom) break;
